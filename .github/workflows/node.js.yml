@@ -24,7 +24,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+      steps:
+    - shell: bash
       env: 
         dockerHubPassword: ${{secrets.DOCKERHUBPASSWORD}}
-    - run: chmod 755 ./build.sh
-    - run: ./build.sh
+      run:
+        chmod 755 ./build.sh
+        ./build.sh
